@@ -31,7 +31,7 @@ WORKDIR $CAFFE_ROOT
 # https://github.com/docker/hub-feedback/issues/460
 ENV CLONE_TAG=1.0
 
-RUN git clone -b ${CLONE_TAG} --depth 1 https://github.com/BVLC/caffe.git . && \
+RUN git clone -b ${CLONE_TAG} --depth 1 https://github.com/mitar/caffe.git . && \
     pip install --upgrade pip && \
     cd python && for req in $(cat requirements.txt) pydot; do pip install $req; done && cd .. && \
     git clone https://github.com/NVIDIA/nccl.git && cd nccl && make -j install && cd .. && rm -rf nccl && \
